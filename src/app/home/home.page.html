@@ -1,20 +1,37 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+  <ion-toolbar class="toolbar">
+      <ion-title>
+          {{'Home.Home' | translate}}
+      </ion-title>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content>
+  <ion-card class="card" *ngFor="let item of transportRate">
+      <ion-card-content>
+          <!-- <div>
+              <span class="field">Source : </span> <span> {{item.source}}</span>
+          </div>
+          <div>
+              <span class="field">Destination : </span> <span> {{item.destination}}</span>
+          </div> -->
+          <div>
+              <ion-note class="highlight">
+                  <ion-icon name="location"></ion-icon>&nbsp; {{item.source}}
+                  <ion-icon name="arrow-forward"></ion-icon> {{item.destination}}
+              </ion-note>
+          </div>
+
+          <div>
+              <ion-note>
+                  <ion-icon name="cash-outline"></ion-icon>
+                  <span class="field">&nbsp;&nbsp;  {{'Home.Rate' | translate}} : </span> <span> {{item.amount}}</span>
+              </ion-note>
+          </div>
+      </ion-card-content>
+  </ion-card>
 </ion-content>

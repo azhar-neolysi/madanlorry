@@ -1,0 +1,28 @@
+@import './../../../global.scss';
+.create-btn {
+    font-size: 25px;
+}
+
+.card {
+    ion-card-content {
+        div {
+            font-size: 16px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            display: flex;
+            .field {
+                width: 100px;
+            }
+        }
+    }
+}
+
+// .btn {
+//     --background: var(--primary-color) !important;
+//     height: 30px;
+//     width: 30px;
+//     font-size: 17px;
+// }
+.accpt {
+    margin-top: 75% !important;
+}

@@ -1,0 +1,112 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="toolbar">
+      <ion-title>
+          {{'Booking.Booking'|translate}}
+      </ion-title>
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+          <ion-icon (click)="track(bookingDetails.vehicleId)" class="sendbtn" name="locate-outline"></ion-icon>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card class="card">
+      <ion-card-content>
+          <div>
+              <ion-note>
+                  <ion-icon name="pin"></ion-icon>
+                  <span>&nbsp;{{'Booking.Booking Id'|translate}} : &nbsp;</span>
+                  <span>{{bookingDetails.bookingId}}</span>
+              </ion-note>
+          </div>
+          <div>
+              <ion-note class="highlight">
+                  <ion-icon name="location"></ion-icon>&nbsp; {{bookingDetails.location}}
+                  <ion-icon name="arrow-forward"></ion-icon> {{bookingDetails.podLocation}}
+              </ion-note>
+          </div>
+          <div>
+              <ion-note>
+                  <ion-icon name="library"></ion-icon>
+                  <span>&nbsp;{{'Booking.Material'|translate}} : &nbsp;</span>
+                  <span>{{bookingDetails.material}}</span>
+              </ion-note>
+
+          </div>
+          <div>
+              <ion-note slot="end">
+                  <ion-icon name="pricetag-outline"></ion-icon>
+                  <span>&nbsp;{{'Booking.TotalQty'|translate}} : &nbsp;</span>
+                  <span>{{bookingDetails.totalQty}}</span>
+              </ion-note>
+          </div>
+          <div>
+              <ion-note>
+                  <ion-icon name="construct-outline"></ion-icon>
+                  <span>&nbsp;{{'Booking.vehicleType'|translate}} : &nbsp;</span><br>
+                  <span>&nbsp;&nbsp;{{bookingDetails.vehicleType}}</span>
+              </ion-note>
+          </div>
+          <div>
+              <ion-note>
+                  <ion-icon name="language-outline"></ion-icon>
+                  <span>&nbsp;{{'Booking.vehicle NO'|translate}} : &nbsp;</span>
+                  <span>{{bookingDetails.vvberVehicleNo}}</span>
+              </ion-note>
+          </div>
+          <div>
+              <ion-note>
+                  <ion-icon name="person-outline"></ion-icon>
+                  <span>&nbsp;{{'Booking.Driver Name'|translate}} : &nbsp;</span>
+                  <span>{{bookingDetails.driverName}}</span>
+              </ion-note>
+          </div>
+          <div>
+              <ion-note>
+                  <ion-icon name="call-outline"></ion-icon>
+                  <span>&nbsp;{{'Booking.Driver Mobile'|translate}} : &nbsp;</span>
+                  <span>{{bookingDetails.mobileNo}}</span>
+              </ion-note>
+          </div>
+          <div>
+              <ion-note>
+                  <ion-icon name="time-outline"></ion-icon>
+                  <span>&nbsp;{{'Booking.LoadingDateTime'|translate}} : &nbsp;</span><br>
+                  <span>&nbsp;&nbsp;{{bookingDetails.estimatedLoadingTime | date:'MMM dd, yyyy / HH : MM'}}</span>
+              </ion-note>
+          </div>
+          <div>
+              <ion-note>
+                  <ion-icon name="today-outline"></ion-icon>
+                  <span>&nbsp;{{'Booking.PaymentDate'|translate}} : &nbsp;</span><br>
+                  <span>&nbsp;&nbsp;{{bookingDetails.bpPaymentDate | date:'MMM dd, yyyy / HH : MM'}}</span>
+              </ion-note>
+          </div>
+          <div>
+              <ion-note>
+                  <ion-icon name="cash-outline"></ion-icon>
+                  <span>&nbsp;{{'Booking.Amount'|translate}} : &nbsp;</span>
+                  <span>{{bookingDetails.bpAmount}}</span>
+              </ion-note>
+          </div>
+          <div>
+              <ion-note>
+                  <ion-icon name="call-outline"></ion-icon>
+                  <span>&nbsp;{{'Booking.Payment Purpose'|translate}} : &nbsp;</span>
+                  <span>{{bookingDetails.rlbpppName}}</span>
+              </ion-note>
+          </div>
+          <div>
+              <ion-note>
+                  <ion-icon name="call-outline"></ion-icon>
+                  <span>&nbsp;{{'Booking.Fright'|translate}} : &nbsp;</span>
+                  <span>{{bookingDetails.fright}}</span>
+              </ion-note>
+          </div>
+      </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,39 @@
+@import './../../global.scss';
+.signup-form {
+    padding: 10px;
+    ion-item {
+        --background: white;
+        // --padding: 0px;
+    }
+}
+
+.signup {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 0px;
+    ion-item {
+        --background: white;
+    }
+}
+
+.form-item {
+    margin-top: 15px;
+    --border-color: grey;
+    --color: black !important;
+    --background: #EFEFEF;
+}
+
+.form-item ion-label {
+    font-size: 14px;
+}
+
+.uploadbtn {
+    margin-left: 70%;
+    margin-top: -2px;
+}
+
+.sendbtn {
+    color: white;
+    font-size: 32px;
+}

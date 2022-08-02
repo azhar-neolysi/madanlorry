@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="toolbar t-center">
+      <ion-title>Madan Transport</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="login-img">
+      <img src="assets/images/All lory.jpg" />
+  </div>
+  <ion-card>
+      <ion-card-content>
+          <form class="login-form" [formGroup]="loginForm">
+              <ion-item class="form-item">
+                  <ion-label position="float">{{'login.Email / Phone Number' | translate}} : </ion-label>
+                  <ion-input type="text" formControlName="userId" placeholder=""></ion-input>
+              </ion-item>
+
+              <ion-item class="form-item">
+                  <ion-label position="float">{{'login.Password' | translate}} : </ion-label>
+                  <ion-input type="password" formControlName="password" placeholder="********"></ion-input>
+              </ion-item>
+
+              <ion-buttons class="btns">
+                  <ion-button slot="start" class="signup" (click)="singup()">{{'login.Sign Up' | translate}}</ion-button>
+
+                  <ion-button slot="end" class="login" (click)="login()">{{'login.Login' | translate}}</ion-button>
+              </ion-buttons>
+          </form>
+      </ion-card-content>
+  </ion-card>
+</ion-content>

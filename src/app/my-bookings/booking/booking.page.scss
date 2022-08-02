@@ -1,0 +1,32 @@
+@import './../../../global.scss';
+ion-item {
+    --background: white;
+    --color: black;
+}
+
+ion-input {
+    text-align: right;
+}
+
+.sendbtn {
+    color: white;
+    font-size: 32px;
+}
+
+ion-note {
+    font-size: large;
+}
+
+.card {
+    ion-card-content {
+        div {
+            font-size: 16px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            display: flex;
+            .field {
+                width: 100px;
+            }
+        }
+    }
+}

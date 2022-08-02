@@ -1,0 +1,34 @@
+npm install cordova-plugin-splashscreen
+npm install @awesome-cordova-plugins/splash-screen
+
+npm install cordova-plugin-statusbar
+npm install @awesome-cordova-plugins/status-bar
+
+npm install cordova-plugin-chooser
+npm install @awesome-cordova-plugins/chooser
+
+npm install cordova-plugin-file-transfer
+npm install @awesome-cordova-plugins/file-transfer
+
+npm install cordova-plugin-geolocation
+npm install @awesome-cordova-plugins/geolocation
+
+npm i @ngx-translate/http-loader
+npm i @ionic/storage-angular
+
+npm install @awesome-cordova-plugins/background-geolocation
+npm i rxjs-compat
+
+npm i @capacitor/google-maps
+
+npm install cordova-plugin-power-optimization
+npm install @awesome-cordova-plugins/power-optimization
+
+npm install cordova-plugin-file
+npm install @awesome-cordova-plugins/file
+
+npm i cordova-plugin-androidx
+npm i cordova-plugin-androidx-adapter
+
+
+import androidx.annotation.NonNull;

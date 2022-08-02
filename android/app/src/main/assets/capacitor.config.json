@@ -1,0 +1,6 @@
+{
+	"appId": "com.madan.lorry",
+	"appName": "Madan Lorry",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

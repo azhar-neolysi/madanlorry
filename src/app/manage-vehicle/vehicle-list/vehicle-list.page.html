@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="toolbar">
+      <ion-title>
+          {{'Manage Vehicles.Manage Vehicles' | translate}}
+      </ion-title>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+          <ion-button class="create-btn" (click)="createVehicle()">
+              <ion-icon name="add-outline"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="card" *ngFor="let vehicle of vehicles">
+      <ion-card-content>
+          <div>
+              <ion-note>
+                  <ion-icon name="language-outline"></ion-icon>
+                  <span>&nbsp;{{'Manage Vehicles.Vehicle NO' | translate}} : &nbsp;</span>
+                  <span>{{vehicle.vvberVehicleNo}}</span>
+              </ion-note>
+          </div>
+          <div>
+              <ion-note>
+                  <ion-icon name="bus-outline"></ion-icon>
+                  <span>&nbsp;{{'Manage Vehicles.Vehicle Type' | translate}} : &nbsp;</span>
+                  <span>{{vehicle.rlvtName}}</span>
+              </ion-note>
+          </div>
+          <div>
+              <ion-note>
+                  <ion-icon name="location-outline"></ion-icon>
+                  <span>&nbsp;{{'Manage Vehicles.Location' | translate}}: &nbsp;</span>
+                  <span>{{vehicle.vehiLocationStateName}}</span>
+              </ion-note>
+          </div>
+          <div>
+              <ion-note>
+                  <ion-icon name="calendar-outline"></ion-icon>
+                  <span>&nbsp;{{'Manage Vehicles.FC Validity' | translate}}: &nbsp;</span>
+                  <span>{{vehicle.fcvalidity | date:'MMM dd, yyyy'}}</span>
+              </ion-note>
+          </div>
+          <div>
+              <ion-note>
+                  <ion-icon name="calendar-outline"></ion-icon>
+                  <span>&nbsp;{{'Manage Vehicles.Insurance Validity' | translate}}: &nbsp;</span>
+                  <span>{{vehicle.insurenceValidty | date:'MMM dd, yyyy'}}</span>
+              </ion-note>
+          </div>
+          <div>
+              <ion-fab vertical="top" horizontal="end">
+                  <ion-fab-button class="accpt" size="small" (click)="edit(vehicle.vehicleId)">
+                      <ion-icon class="highlight" name="pencil-outline"></ion-icon>
+                  </ion-fab-button>
+
+              </ion-fab>
+              <ion-fab vertical="bottom" horizontal="end">
+                  <ion-fab-button class="cancel" size="small" (click)="deleteVehicle(vehicle.vehicleId)">
+                      <ion-icon name="trash-outline"></ion-icon>
+                  </ion-fab-button>
+              </ion-fab>
+          </div>
+      </ion-card-content>
+  </ion-card>
+</ion-content>
