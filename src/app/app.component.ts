@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, NgZone, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Platform, MenuController, IonRouterOutlet } from '@ionic/angular';
+import { Platform, MenuController, IonRouterOutlet,AlertController } from '@ionic/angular';
 import { SplashScreen } from '@awesome-cordova-plugins/splash-screen/ngx';
 import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
 import { BehaviorSubject } from 'rxjs';
@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 import { LanguageService } from './services/language/language.service';
 import { LocalStorageService } from './services/local-storage/local-storage.service';
 import { ToastService } from './services/toast/toast.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -36,7 +37,9 @@ export class AppComponent implements OnInit,AfterViewInit,OnDestroy {
     private router: Router,
     private toaster: ToastService,
     private ls: LocalStorageService,
-    public storage: Storage
+    public storage: Storage,
+    public alertController: AlertController,
+    private location: Location,
   ) {
     this.initializeApp();
   }
@@ -50,6 +53,62 @@ export class AppComponent implements OnInit,AfterViewInit,OnDestroy {
       this.translate.setDefaultLang('en');
       this.languageService.setInitialLanguage();
     });
+
+    this.platform.backButton.subscribeWithPriority(10, (processNextHandler) => {
+      console.log('Back press handler!');
+      if (this.location.isCurrentPathEqualTo('/home') || this.location.isCurrentPathEqualTo('/login')) {
+
+        // Show Exit Alert!
+        console.log('Show Exit Alert!');
+        this.showExitConfirm();
+        processNextHandler();
+      } else {
+
+        // Navigate to back page
+        console.log('Navigate to back page');
+        this.location.back();
+        // this.showExitConfirm();
+        // processNextHandler();
+      }
+
+    });
+
+    this.platform.backButton.subscribeWithPriority(5, () => {
+      console.log('Handler called to force close!');
+      this.alertController.getTop().then(r => {
+        if (r) {
+          (navigator as any).app.exitApp();
+        }
+      }).catch(e => {
+        console.log(e);
+      });
+    });
+  }
+  showExitConfirm() {
+    this.alertController.create({
+      header: 'App termination',
+      message: 'Do you want to close the app?',
+      backdropDismiss: false,
+      // mode:'ios',
+      cssClass: 'custom-alert',
+      buttons: [{
+        text: 'Stay',
+        role: 'cancel',
+        cssClass: 'alert-button-cancel',
+        handler: () => {
+          console.log('Application exit prevented!');
+        }
+      }, {
+        text: 'Exit',
+        cssClass: 'alert-button-confirm',
+        handler: () => {
+          (navigator as any).app.exitApp();
+        }
+      }]
+    })
+      .then(alert => {
+        alert.present();
+      });
   }
 
   ionViewWillEnter() {
@@ -69,7 +128,7 @@ export class AppComponent implements OnInit,AfterViewInit,OnDestroy {
     // });
   }
   ngAfterViewInit() {
-    this.backButtonEvent();
+    // this.backButtonEvent();
   }
   ngOnDestroy() {
     this.backButtonSubscription.unsubscribe();

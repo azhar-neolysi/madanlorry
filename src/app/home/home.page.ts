@@ -61,7 +61,7 @@ export class HomePage implements OnInit,OnDestroy {
     } catch (e) {
       console.log(e);
     }
-    this.backButtonEvent();
+    // this.backButtonEvent();
     this.storage.create();
   }
   ngOnDestroy() {

@@ -233,4 +233,9 @@
 
     --ion-card-background: #f3f3f3;
   }
+  .md ion-modal {
+    --ion-background-color: var(ion-color-step-950);
+    --ion-toolbar-background: var(ion-color-step-950);
+    --ion-toolbar-border-color: var(ion-color-step-950);
+  }
 }

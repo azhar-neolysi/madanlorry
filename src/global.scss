@@ -98,9 +98,51 @@ ion-card {
   color: black !important;
 }
 
-.spinner {
-  --spinner-color: var(--primary-color);
-}
+// .spinner {
+//   --spinner-color: var(--primary-color);
+// }
 ion-datetime{
   --background:white;
+}
+// ion-select-option {
+//   color: black;
+// }
+.checkmark{
+  color: green;
+}
+ion-select{
+  .ionselect{
+    color: #eb445a;
+    background-color: blue;
+  }
+
+}
+.spinner {
+  --spinner-color: var(--primary-color);
+  --background: white;
+  color: var(--primary-color);
+}
+ion-datetime {
+  --background: white;
+  color: black;
+}
+ion-alert.custom-alert {
+  --backdrop-opacity: 0.7;
+  --background: white;
+}
+
+.custom-alert .alert-button-group {
+  padding: 8px;
+}
+
+button.alert-button.alert-button-confirm {
+  background-color: var(--ion-color-success);
+  color: var(--ion-color-success-contrast);
+}
+
+.md button.alert-button.alert-button-confirm {
+  border-radius: 4px;
+}
+.uploadsuccess{
+  --color:green;
 }

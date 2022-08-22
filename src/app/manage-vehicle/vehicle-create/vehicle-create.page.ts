@@ -28,9 +28,9 @@ export class VehicleCreatePage implements OnInit {
     refReferenceListVehicleTypeid: ['', [Validators.required]],
     vehicleNo: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(10)]],
     fcValidity: ['', [Validators.required]],
-    fCDocument: ['', [Validators.required]],
+    fCDocument: ['C:/', [Validators.required]],
     insurenceValidty: ['', [Validators.required]],
-    insurenceDocument: ['', [Validators.required]],
+    insurenceDocument: ['C:/', [Validators.required]],
     rCDocument: ['C:/', [Validators.required]],
     description: ['',],
     refReferenceListCityId: ['', [Validators.required]],
@@ -217,15 +217,23 @@ export class VehicleCreatePage implements OnInit {
       console.log(resp);
       if (docType === 'FC Doc') {
         this.fcDocumentUrl = resp.toString();
+        // this.fcSourceUrl=resp.uri;
         this.fcUpload = true;
+        console.log(this.fcDocumentUrl,this.fcUpload);
       }
       else if (docType === 'Insurence Doc') {
         this.insurenceDocUrl = resp.toString();
+        // this.insurenceSourceUrl=resp.uri;
         this.insurenceUpload = true;
+        console.log(this.insurenceDocUrl,this.insurenceUpload);
+
       }
       else {
         this.rcDocUrl = resp.toString();
+        // this.rcSourceUrl=resp.uri;
         this.rcUpload = true;
+        console.log(this.rcDocUrl,this.rcUpload);
+
       }
 
     }).catch((err) => {

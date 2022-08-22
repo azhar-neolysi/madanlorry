@@ -82,6 +82,8 @@ export class SignupPage implements OnInit {
   panDocUrl = '';
   gstUpload = false;
   panUpload = false;
+  gstSourceUrl: string;
+  panSourceUrl: string;
   constructor(private signUpApi: SignupService,
     private router: Router,
     private fb: FormBuilder,
@@ -159,8 +161,8 @@ export class SignupPage implements OnInit {
   submit() {
     console.log('f = ', this.registrationForm);
     console.log('dp = ', this.doNotProceed);
-    console.log('gst = ', this.gstDocUrl);
-    console.log('pd = ', this.panDocUrl);
+    console.log('gst = ', this.gstSourceUrl);
+    console.log('pd = ', this.panSourceUrl);
 
     if (this.registrationForm.valid && !this.doNotProceed && this.gstDocUrl !== '' && this.panDocUrl !== '') {
       this.loader.createLoader();
@@ -250,7 +252,7 @@ export class SignupPage implements OnInit {
       }
     }
     else {
-      if (!this.registrationForm.get('Pannumber').value) {
+      if (!this.registrationForm.get('pannumber').value) {
         this.toast.warning('Please enter pan Number before uploading document');
         return;
       }
@@ -260,11 +262,15 @@ export class SignupPage implements OnInit {
       console.log(resp);
       if (docType === 'gstno') {
         this.gstDocUrl = resp.toString();
+        this.gstSourceUrl = resp.dataURI;
         this.gstUpload = true;
+        console.log(this.gstSourceUrl,this.gstUpload);
       }
       else {
         this.panDocUrl = resp.toString();
+        this.panSourceUrl = resp.dataURI;
         this.panUpload = true;
+        console.log(this.panUpload,this.panSourceUrl);
       }
 
     }).catch((err) => {
@@ -283,7 +289,7 @@ export class SignupPage implements OnInit {
         }
       };
       req.gstDocUrl = `F:/TransporterGST/${req.gstno}TransGST.pdf`;
-      fileTransfer.upload(this.gstDocUrl, `${environment.serverUrl}Common/PostdriverUploads/?file`, gstOptions).then((res) => {
+      fileTransfer.upload(this.gstSourceUrl, `${environment.serverUrl}Common/PostdriverUploads/?file`, gstOptions).then((res) => {
         console.log(res);
       }).catch(err => {
         console.log(err);
@@ -297,7 +303,7 @@ export class SignupPage implements OnInit {
         }
       };
       req.panDocUrl = `F:/TransporterPAN/${req.Pannumber}TransPAN.pdf`;
-      fileTransfer.upload(this.panDocUrl, `${environment.serverUrl}Common/PostdriverUploads/?file`, panOptions).then((res) => {
+      fileTransfer.upload(this.panSourceUrl, `${environment.serverUrl}Common/PostdriverUploads/?file`, panOptions).then((res) => {
         console.log(res);
       }).catch(err => {
         console.log(err);

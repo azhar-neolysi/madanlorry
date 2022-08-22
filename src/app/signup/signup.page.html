@@ -31,7 +31,7 @@
       >
       <ion-button class="uploadbtn" (click)="chooseFile('gstno')"
         >Choose GST</ion-button
-      >
+      ><ion-icon *ngIf="gstUpload" class="checkmark" name="checkmark-done-circle-sharp"></ion-icon><ion-icon class="uploadsuccess" name="checkmark-done-sharp"></ion-icon>
     </ion-item>
     <ion-item class="form-item">
       <ion-label position="floating"
@@ -59,7 +59,7 @@
       >
       <ion-button class="uploadbtn" (click)="chooseFile('Pannumber')"
         >Choose PAN</ion-button
-      >
+      ><ion-icon *ngIf="panUpload" class="checkmark" name="checkmark-done-circle-sharp"></ion-icon>
     </ion-item>
     <ion-item class="form-item">
       <ion-label position="floating"
@@ -183,10 +183,10 @@
         >{{'Resgistration.Country' | translate}}:</ion-label
       >
       <ion-select
-        mode="ios"
         formControlName="refReferenceListCountryId"
-        interface="popover"
+        interface="action-sheet"
         placeholder="Select Country"
+        mode="ios"
       >
         <ion-select-option
           *ngFor="let item of countrys"
@@ -200,10 +200,10 @@
         >{{'Resgistration.State' | translate}}:</ion-label
       >
       <ion-select
-        mode="ios"
         formControlName="refReferenceListStateId"
-        interface="popover"
+        interface="action-sheet"
         placeholder="Select State"
+        mode="ios"
       >
         <ion-select-option
           *ngFor="let item of states"
@@ -217,9 +217,9 @@
         >{{'Resgistration.City' | translate}}:</ion-label
       >
       <ion-select
-        mode="ios"
         formControlName="refReferenceListCityId"
-        interface="popover"
+        interface="action-sheet"
+        mode="ios"
         placeholder="Select City"
       >
         <ion-select-option

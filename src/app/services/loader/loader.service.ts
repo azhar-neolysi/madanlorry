@@ -31,7 +31,7 @@ export class LoaderService {
     return await this.loadingController.create({
       cssClass: 'spinner',
       message: 'Loading Please wait...',
-      // duration: 3000,
+      duration: 3000,
       animated: true,
       mode: 'ios',
       showBackdrop: true,
@@ -47,11 +47,11 @@ export class LoaderService {
     });
   }
   async dismissLoader() {
-
+    // console.log('dismissed');
     // if (this.loading.present())
     //   this.loading.dismiss();
-    this.isLoading = false;
-    return await this.loadingController.dismiss().then(() => console.log('dismissed'));
+    // this.isLoading = false;
+    // return await this.loadingController.dismiss().then(() => console.log('dismissed'));
   }
 
   async dismissLoading(loading) {
